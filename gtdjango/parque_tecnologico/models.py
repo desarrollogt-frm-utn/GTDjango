@@ -18,6 +18,10 @@ class Recurso(models.Model):
 
     )
 
+    ultima_actualizacion = models.DateTimeField(
+        auto_now_add=True
+    )
+
     def __str__(self):
         if self.tipo_recurso.indetificador == "PM":
             return "{0!s}-{1!s}".format(self.nombre, self.tipo_recurso.indetificador)
