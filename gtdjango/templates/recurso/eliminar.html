@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="text-center">
+    <h1>Eliminar Recurso</h1>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="text-center">
+        <h3>¿Esta seguro que desea eliminar el recurso {{recurso}}?</h3>
+    </div>
+
+    <div class="float-right col-sm-4">
+        <a class="btn btn-primary" href="{%url 'detalle-recurso' recurso.id %}">Cancelar</a>
+        <input class="btn btn-danger" type="submit" value="Borrar">
+    </div>
+</form>
+
+{% endblock body %}

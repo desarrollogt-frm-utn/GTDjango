@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="text-center">
+    <h1>Lista de Recursos</h1>
+</div>
+
+{% if recursos %}
+<div class="mx-auto col-sm-11">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Recurso</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recurso in recursos %}
+            <tr>
+                <td><a href="{% url 'detalle-recurso' recurso.id %}">{{recurso.id}}</a></td>
+                <td>{{recurso}}</td>
+                <td>{{recurso.tipo_recurso}}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% else %}
+
+    <h2>No existen recursos cargados en el sistema</h2>
+
+{% endif %}
+
+{% endblock body %}

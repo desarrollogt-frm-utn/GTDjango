@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="text-center">
+    <h1>Detalle de Recurso {{recurso}}</h1>
+</div>
+
+<div class="mx-auto col-sm-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Información
+                </h3>
+            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <th scope="row">Id</th>
+                    <td>#{{recurso.id}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Nombre</th>
+                    <td class="text-center">
+                        {{recurso}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Tipo de Recurso</th>
+                    <td class="text-center">{{ recurso.tipo_recurso }}</td>
+                </tr>
+                 <tr>
+                    <th scope="row">Fecha de creación</th>
+                    <td class="text-center">
+                        {{ recurso.fecha_creacion}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Acciones</th>
+                    <td class="text-center">
+                        <a class="btn btn-primary" href="">Modificar</a>
+                        <a class="btn btn-danger" href="{%url 'eliminar-recurso' recurso.id %}">Borrar</a>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+</div>
+
+{% endblock body %}
