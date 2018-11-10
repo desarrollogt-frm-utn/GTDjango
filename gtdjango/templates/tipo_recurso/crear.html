@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="text-center">
+    <h1>Formulario de creación de Tipo Recursos</h1>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="mx-auto col-sm-8">
+        {{form.as_p}}
+    </div>
+
+    <div class="float-right col-sm-4">
+        <input class="btn btn-primary" type="submit" value="Guardar">
+    </div>
+</form>
+
+{% endblock body %}

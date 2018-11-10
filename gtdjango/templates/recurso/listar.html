@@ -4,6 +4,14 @@
 <div class="text-center">
     <h1>Lista de Recursos</h1>
 </div>
+<form>
+<div class="mx-auto col-sm-6">
+
+{{filter_form.tipo}}
+
+    <input class="btn btn-primary" type="submit" value="Filtrar">
+    </div>
+
 
 {% if recursos %}
 <div class="mx-auto col-sm-11">
@@ -34,5 +42,48 @@
     <h2>No existen recursos cargados en el sistema</h2>
 
 {% endif %}
+
+{% if is_paginated %}
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+
+
+      {% if page_obj.has_previous %}
+
+      <li class="page-item">
+      <a class="page-link" href="?page={{page_obj.previous_page_number}}&tipo={{filter_form.tipo.value}}">Anterior</a>
+    </li>
+
+      {% else %}
+    <li class="page-item disabled">
+      <a class="page-link">Anterior</a>
+    </li>
+      {% endif %}
+
+
+      {% for page in paginator.page_range %}
+          <li class="page-item"><a class="page-link" href="?page={{page}}&tipo={{filter_form.tipo.value}}">{{page}}</a></li>
+      {% endfor%}
+
+
+       {% if page_obj.has_next %}
+
+      <li class="page-item">
+      <a class="page-link" href="?page={{page_obj.next_page_number}}&tipo={{filter_form.tipo.value}}">Siguiente</a>
+    </li>
+
+      {% else %}
+    <li class="page-item disabled">
+      <a class="page-link">Siguiente</a>
+    </li>
+      {% endif %}
+  </ul>
+</nav>
+
+
+{% endif %}
+
+    </form>
 
 {% endblock body %}
