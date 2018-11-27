@@ -13,6 +13,7 @@ def index(request):
 
 
 def saludo(request, nombre):
+    request.user
     return render(request, "saludo.html", {'nombre': nombre})
 
 def multiplicar(request, a, b):

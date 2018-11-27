@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.urls import reverse_lazy
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -39,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 
-    'parque_tecnologico.apps.ParqueTecnologicoConfig'
+    'parque_tecnologico',
+    'usuario.apps.UsuarioConfig'
+
 ]
 
 MIDDLEWARE = [
@@ -79,7 +83,7 @@ WSGI_APPLICATION = 'gtdjango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gt_django',
+        'NAME': 'curso_gt',
         'USER': 'postgres',
         'PASSWORD': 'postgresql',
         'HOST': 'localhost',
@@ -127,3 +131,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
+LOGIN_REDIRECT_URL = reverse_lazy('listar-recurso')
+LOGIN_URL = reverse_lazy('login')
+LOGOUT_REDIRECT_URL = reverse_lazy('login')
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'cursogtdjangofrm@gmail.com'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

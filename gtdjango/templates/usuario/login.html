@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Ingresar al sistema
+{% endblock titulo %}
+{% block navbar%}
+{% endblock %}
+{% block body %}
+<div class="row">
+    {% include 'commons/error_form.html' %}
+</div>
+<form method="post">
+    <div class="mx-auto col-sm-6">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="username">Nombre de usuario:</label>
+                    <input class="form-control" type="text" name="username">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="username">Contraseña:</label>
+                    <input class="form-control" type="password" name="password">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <a href="{% url 'registrar' %}">Registrarse</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <a href="{% url 'password_reset' %}">Olvidé mi contraseña</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Ingresar">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+{% endblock %}

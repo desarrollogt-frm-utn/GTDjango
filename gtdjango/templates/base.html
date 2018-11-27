@@ -38,6 +38,18 @@
 
     </div>
   </div>
+{% if user.is_authenticated %}
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <span class="nav-link">Hola <b> {{user.username}}</b></span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout'  %}">Salir</a>
+            </li>
+        </ul>
+    </div>
+    {% endif %}
 
 </nav>
         {% endblock navbar %}

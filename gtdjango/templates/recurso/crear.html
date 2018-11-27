@@ -6,6 +6,9 @@
 </div>
 
 <form method="POST">
+    <div class="row">
+        {% include 'commons/error_form.html' %}
+    </div>
     {% csrf_token %}
 
     <div class="mx-auto col-sm-8">
